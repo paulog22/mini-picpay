@@ -1,5 +1,7 @@
 package com.paulo.minipicpay.model;
 
+import com.paulo.minipicpay.model.exception.InvalidCpfValueException;
+
 public class Cpf {
 
     private final String value;

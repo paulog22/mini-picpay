@@ -1,5 +1,7 @@
 package com.paulo.minipicpay.model;
 
+import com.paulo.minipicpay.model.exception.InvalidUserTypeException;
+
 public enum UserType {
 
     PERSON, STORE;

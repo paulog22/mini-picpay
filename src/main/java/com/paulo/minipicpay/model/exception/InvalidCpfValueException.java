@@ -1,4 +1,4 @@
-package com.paulo.minipicpay.model;
+package com.paulo.minipicpay.model.exception;
 
 public class InvalidCpfValueException extends RuntimeException {
 

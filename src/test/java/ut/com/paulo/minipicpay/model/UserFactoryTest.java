@@ -1,6 +1,7 @@
 package ut.com.paulo.minipicpay.model;
 
 import com.paulo.minipicpay.model.*;
+import com.paulo.minipicpay.model.exception.InvalidCpfValueException;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

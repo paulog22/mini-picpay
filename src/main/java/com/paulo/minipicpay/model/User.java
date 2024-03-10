@@ -7,6 +7,7 @@ public class User {
     private final Cpf cpf;
     private final UserEmail email;
     private final Password password;
+    private Double balance;
 
     public User(Builder builder) {
         this.userType = builder.userType;
@@ -14,6 +15,7 @@ public class User {
         this.cpf = builder.cpf;
         this.email = builder.email;
         this.password = builder.password;
+        this.balance = 0D;
     }
 
     public UserType userType() {
@@ -28,13 +30,16 @@ public class User {
         return cpf;
     }
 
-
     public UserEmail email() {
         return email;
     }
 
     public Password password() {
         return password;
+    }
+
+    public Double balance() {
+        return balance;
     }
 
     public static class Builder {

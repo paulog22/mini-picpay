@@ -24,6 +24,7 @@ public class UserFactoryTest {
         assertThat(user.cpf().value(), is("123.123.123.12"));
         assertThat(user.email().value(), is("paulo@gmail.com"));
         assertThat(user.password().value(), is("111111111"));
+        assertThat(user.balance(), is(0D));
         verify(userRepository, times(1)).insert(user);
     }
 

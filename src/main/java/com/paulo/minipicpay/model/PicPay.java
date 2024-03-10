@@ -17,7 +17,7 @@ public class PicPay {
     }
 
     private void updateUsersBalance(User sender, User recipient, Double amount) {
-        userRepository.updateBalance(sender, amount, TransferType.SEND);
-        userRepository.updateBalance(recipient, amount, TransferType.RECEIVE);
+        userRepository.updateBalance(sender, amount);
+        userRepository.updateBalance(recipient, amount);
     }
 }

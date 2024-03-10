@@ -18,6 +18,14 @@ public class User {
         this.balance = 0D;
     }
 
+    public void increaseBalance(Double amount) {
+        this.balance = balance + amount;
+    }
+
+    public void decreaseBalance(Double amount) {
+        this.balance = balance - amount;
+    }
+
     public UserType userType() {
         return userType;
     }

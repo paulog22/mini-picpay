@@ -16,7 +16,7 @@ public class Cpf {
     }
 
     public static boolean isValid(String value) {
-        return true;
+        return value.trim().replaceAll("[.-]", "").matches("\\d{11}");
     }
 
     public String value() {

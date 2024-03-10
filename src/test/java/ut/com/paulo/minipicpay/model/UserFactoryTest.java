@@ -28,6 +28,17 @@ public class UserFactoryTest {
         verify(userRepository, times(1)).insert(user);
     }
 
+    @Test
+    public void shouldCreateAValidCpf() {
+        Cpf.of("123.123.123-12");
+        Cpf.of("12312312312");
+    }
+
+    @Test(expected = InvalidCpfValueException.class)
+    public void shouldThrowInvalidCpfValueException() {
+        Cpf.of("123.123ola");
+    }
+
     private final UserRepository userRepository = mock(UserRepository.class);
     private final UserFactory factory = new UserFactory(userRepository);
 }

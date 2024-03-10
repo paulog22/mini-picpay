@@ -1,4 +1,4 @@
-package com.paulo.minipicpay.it;
+package it;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

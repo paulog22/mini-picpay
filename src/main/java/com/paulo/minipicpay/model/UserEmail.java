@@ -4,7 +4,15 @@ public class UserEmail {
 
     private final String value;
 
-    public UserEmail(String value) {
+    private UserEmail(String value) {
         this.value = value;
+    }
+
+    public static UserEmail of(String value) {
+        return new UserEmail(value);
+    }
+
+    public String value() {
+        return value;
     }
 }

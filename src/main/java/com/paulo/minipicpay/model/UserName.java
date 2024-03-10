@@ -11,4 +11,8 @@ public class UserName {
     public static UserName of(String value) {
         return new UserName(value);
     }
+
+    public String value() {
+        return value;
+    }
 }

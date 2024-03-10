@@ -4,21 +4,16 @@ public class User {
 
     private final UserType userType;
     private final UserName name;
-    private final String cpf;
-    private final String email;
-    private final String password;
+    private final Cpf cpf;
+    private final UserEmail email;
+    private final Password password;
 
-    public User(UserType userType, UserName name, String cpf, String email, String password) {
-        this.userType = userType;
-        this.name = name;
-        this.cpf = cpf;
-        this.email = email;
-        this.password = password;
-        validate(this);
-    }
-
-    private void validate(User user) {
-        // cpf, email
+    public User(Builder builder) {
+        this.userType = builder.userType;
+        this.name = builder.name;
+        this.cpf = builder.cpf;
+        this.email = builder.email;
+        this.password = builder.password;
     }
 
     public UserType userType() {
@@ -29,16 +24,57 @@ public class User {
         return name;
     }
 
-    public String cpf() {
+    public Cpf cpf() {
         return cpf;
     }
 
 
-    public String email() {
+    public UserEmail email() {
         return email;
     }
 
-    public String password() {
+    public Password password() {
         return password;
+    }
+
+    public static class Builder {
+        private UserType userType;
+        private UserName name;
+        private Cpf cpf;
+        private UserEmail email;
+        private Password password;
+
+        public static Builder aUser() {
+            return new Builder();
+        }
+
+        public Builder with(UserType userType) {
+            this.userType = userType;
+            return this;
+        }
+
+        public Builder with(UserName name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder with(Cpf cpf) {
+            this.cpf = cpf;
+            return this;
+        }
+
+        public Builder with(UserEmail email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder with(Password password) {
+            this.password = password;
+            return this;
+        }
+
+        public User build() {
+            return new User(this);
+        }
     }
 }

@@ -9,10 +9,10 @@ public class Cpf {
     }
 
     public static Cpf of(String value) {
-        if (!isValid(value)) {
-            throw new InvalidCpfValueException("Invalid Cpf value");
+        if (isValid(value)) {
+            return new Cpf(value);
         }
-        return new Cpf(value);
+        throw new InvalidCpfValueException("Invalid Cpf value");
     }
 
     public static boolean isValid(String value) {

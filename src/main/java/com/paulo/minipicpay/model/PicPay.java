@@ -10,9 +10,7 @@ public class PicPay {
         this.validateHandler = validateHandler;
     }
 
-    public void transfer(Cpf senderCpf, Cpf recipientCpf, Double amount) {
-        User sender = userRepository.findBy(senderCpf);
-        User recipient = userRepository.findBy(recipientCpf);
+    public void transfer(User sender, User recipient, Double amount) {
         validateHandler.validate(sender, amount);
         sender.decreaseBalance(amount);
         recipient.increaseBalance(amount);

@@ -5,6 +5,8 @@ import com.paulo.minipicpay.model.exception.TransferNotAllowedException;
 import com.paulo.minipicpay.model.User;
 import com.paulo.minipicpay.model.UserType;
 
+import java.math.BigDecimal;
+
 public class UserTypeValidationHandler extends BaseValidationHandler {
 
     public UserTypeValidationHandler(ValidateTransferHandler next) {
@@ -12,7 +14,7 @@ public class UserTypeValidationHandler extends BaseValidationHandler {
     }
 
     @Override
-    public void validate(User user, Double amount) {
+    public void validate(User user, BigDecimal amount) {
         if (user.userType().equals(UserType.PERSON)) {
             next(user, amount);
             return;

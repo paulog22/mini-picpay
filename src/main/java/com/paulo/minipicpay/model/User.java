@@ -1,5 +1,7 @@
 package com.paulo.minipicpay.model;
 
+import java.math.BigDecimal;
+
 public class User {
 
     private final UserType userType;
@@ -7,7 +9,7 @@ public class User {
     private final Document document;
     private final UserEmail email;
     private final Password password;
-    private Double balance;
+    private BigDecimal balance;
 
     public User(Builder builder) {
         this.userType = builder.userType;
@@ -15,15 +17,15 @@ public class User {
         this.document = builder.document;
         this.email = builder.email;
         this.password = builder.password;
-        this.balance = 0D;
+        this.balance = BigDecimal.valueOf(0);
     }
 
-    public void increaseBalance(Double amount) {
-        this.balance = balance + amount;
+    public void increaseBalance(BigDecimal amount) {
+        this.balance = balance.add(amount);
     }
 
-    public void decreaseBalance(Double amount) {
-        this.balance = balance - amount;
+    public void decreaseBalance(BigDecimal amount) {
+        this.balance = balance.subtract(amount);
     }
 
     public UserType userType() {
@@ -34,7 +36,7 @@ public class User {
         return name;
     }
 
-    public Document cpf() {
+    public Document document() {
         return document;
     }
 
@@ -46,7 +48,7 @@ public class User {
         return password;
     }
 
-    public Double balance() {
+    public BigDecimal balance() {
         return balance;
     }
 

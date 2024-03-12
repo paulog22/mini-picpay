@@ -4,8 +4,11 @@ import com.paulo.minipicpay.model.*;
 import com.paulo.minipicpay.model.exception.InvalidCpfValueException;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.comparesEqualTo;
 import static org.mockito.Mockito.*;
 
 public class UserFactoryTest {
@@ -22,10 +25,10 @@ public class UserFactoryTest {
 
         assertThat(user.userType(), is(UserType.PERSON));
         assertThat(user.name().value(), is("Paulo Vitor"));
-        assertThat(user.cpf().value(), is("123.123.123.12"));
+        assertThat(user.document().value(), is("123.123.123.12"));
         assertThat(user.email().value(), is("paulo@gmail.com"));
         assertThat(user.password().value(), is("111111111"));
-        assertThat(user.balance(), is(0D));
+        assertThat(user.balance(), comparesEqualTo(BigDecimal.ZERO));
         verify(userRepository, times(1)).insert(user);
     }
 

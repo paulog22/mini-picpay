@@ -4,6 +4,8 @@ import com.paulo.minipicpay.application.UserService;
 import com.paulo.minipicpay.model.*;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static com.paulo.minipicpay.UserFixture.aPersonUser;
 import static com.paulo.minipicpay.UserFixture.aStoreUser;
 import static org.mockito.Mockito.*;
@@ -14,7 +16,7 @@ public class UserServiceTest {
     public void delegatesToPicPayTransfer() {
         Document senderDocument = Document.of("123.123.123-12");
         Document recipientDocument = Document.of("111.111.111-11");
-        Double amount = 234.12;
+        BigDecimal amount = BigDecimal.valueOf(234.12);
         when(userRepository.findBy(senderDocument)).thenReturn(aPersonUser());
         when(userRepository.findBy(recipientDocument)).thenReturn(aStoreUser());
 
@@ -22,7 +24,7 @@ public class UserServiceTest {
 
         verify(userRepository, times(1)).findBy(senderDocument);
         verify(userRepository, times(1)).findBy(recipientDocument);
-        verify(picPay, times(1)).transfer(any(User.class), any(User.class), anyDouble());
+        verify(picPay, times(1)).transfer(any(User.class), any(User.class), any());
     }
 
     @Test

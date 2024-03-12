@@ -4,5 +4,5 @@ public interface UserRepository {
 
     void insert(User user);
     void updateBalance(User user, Double amount);
-    User findBy(Cpf cpf);
+    User findBy(Document document);
 }

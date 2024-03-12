@@ -8,17 +8,17 @@ public class UserFactory {
         this.userRepository = userRepository;
     }
 
-    public User newUserWith(UserType userType, UserName name, Cpf cpf, UserEmail email, Password password) {
-        User user = buildWith(userType, name, cpf, email, password);
+    public User newUserWith(UserType userType, UserName name, Document document, UserEmail email, Password password) {
+        User user = buildWith(userType, name, document, email, password);
         userRepository.insert(user);
         return user;
     }
 
-    private User buildWith(UserType userType, UserName name, Cpf cpf, UserEmail email, Password password) {
+    private User buildWith(UserType userType, UserName name, Document document, UserEmail email, Password password) {
         return User.Builder.aUser()
                 .with(userType)
                 .with(name)
-                .with(cpf)
+                .with(document)
                 .with(email)
                 .with(password)
                 .build();

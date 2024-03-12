@@ -14,11 +14,11 @@ public class UserFactoryTest {
     public void createsPersonUser() {
         UserType userType = UserType.PERSON;
         UserName name = UserName.of("Paulo Vitor");
-        Cpf cpf = Cpf.of("123.123.123.12");
+        Document document = Document.of("123.123.123.12");
         UserEmail email = UserEmail.of("paulo@gmail.com");
         Password password = Password.of("111111111");
 
-        User user = factory.newUserWith(userType, name, cpf, email, password);
+        User user = factory.newUserWith(userType, name, document, email, password);
 
         assertThat(user.userType(), is(UserType.PERSON));
         assertThat(user.name().value(), is("Paulo Vitor"));
@@ -31,13 +31,13 @@ public class UserFactoryTest {
 
     @Test
     public void shouldCreateAValidCpf() {
-        Cpf.of("123.123.123-12");
-        Cpf.of("12312312312");
+        Document.of("123.123.123-12");
+        Document.of("12312312312");
     }
 
     @Test(expected = InvalidCpfValueException.class)
     public void shouldThrowInvalidCpfValueException() {
-        Cpf.of("123.123ola");
+        Document.of("123.123ola");
     }
 
     private final UserRepository userRepository = mock(UserRepository.class);

@@ -2,17 +2,17 @@ package com.paulo.minipicpay.model;
 
 import com.paulo.minipicpay.model.exception.InvalidCpfValueException;
 
-public class Cpf {
+public class Document {
 
     private final String value;
 
-    private Cpf(String value) {
+    private Document(String value) {
         this.value = value;
     }
 
-    public static Cpf of(String value) {
+    public static Document of(String value) {
         if (isValid(value)) {
-            return new Cpf(value);
+            return new Document(value);
         }
         throw new InvalidCpfValueException("Invalid Cpf value");
     }

@@ -12,7 +12,17 @@ public class UserFixture {
         return User.Builder.aUser()
                 .with(UserType.PERSON)
                 .with(UserName.of("Paulo"))
-                .with(Cpf.of("123.123.123.12"))
+                .with(Document.of("123.123.123.12"))
+                .with(UserEmail.of("paulo@gmail.com"))
+                .with(Password.of("111111111"))
+                .build();
+    }
+
+    public static User aStoreUser() {
+        return User.Builder.aUser()
+                .with(UserType.STORE)
+                .with(UserName.of("Paulo"))
+                .with(Document.of("111.111.111.11"))
                 .with(UserEmail.of("paulo@gmail.com"))
                 .with(Password.of("111111111"))
                 .build();

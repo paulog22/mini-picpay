@@ -4,7 +4,7 @@ public class User {
 
     private final UserType userType;
     private final UserName name;
-    private final Cpf cpf;
+    private final Document document;
     private final UserEmail email;
     private final Password password;
     private Double balance;
@@ -12,7 +12,7 @@ public class User {
     public User(Builder builder) {
         this.userType = builder.userType;
         this.name = builder.name;
-        this.cpf = builder.cpf;
+        this.document = builder.document;
         this.email = builder.email;
         this.password = builder.password;
         this.balance = 0D;
@@ -34,8 +34,8 @@ public class User {
         return name;
     }
 
-    public Cpf cpf() {
-        return cpf;
+    public Document cpf() {
+        return document;
     }
 
     public UserEmail email() {
@@ -53,7 +53,7 @@ public class User {
     public static class Builder {
         private UserType userType;
         private UserName name;
-        private Cpf cpf;
+        private Document document;
         private UserEmail email;
         private Password password;
 
@@ -71,8 +71,8 @@ public class User {
             return this;
         }
 
-        public Builder with(Cpf cpf) {
-            this.cpf = cpf;
+        public Builder with(Document document) {
+            this.document = document;
             return this;
         }
 

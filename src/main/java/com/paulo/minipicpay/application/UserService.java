@@ -18,8 +18,9 @@ public class UserService {
     }
 
     @Transactional
-    public void create() {
-
+    public User create(CreateUserRequest request) {
+        return factory.newUserWith(UserType.from(request.userType()), UserName.of(request.name()),
+                Document.of(request.document()), UserEmail.of(request.email()), Password.of(request.password()));
     }
 
     @Transactional

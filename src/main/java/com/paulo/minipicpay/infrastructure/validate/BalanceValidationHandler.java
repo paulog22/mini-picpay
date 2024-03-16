@@ -15,7 +15,6 @@ public class BalanceValidationHandler extends BaseValidationHandler {
     @Override
     public void validate(User user, BigDecimal amount) {
         if (haveBalance(user, amount)) {
-            next(user, amount);
             return;
         }
         throw new InsufficientBalanceException("Insufficient balance - Balance: R$" + user.balance());

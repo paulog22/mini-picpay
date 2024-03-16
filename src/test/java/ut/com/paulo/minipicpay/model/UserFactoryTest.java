@@ -2,6 +2,7 @@ package ut.com.paulo.minipicpay.model;
 
 import com.paulo.minipicpay.model.*;
 import com.paulo.minipicpay.model.exception.InvalidCpfValueException;
+import com.paulo.minipicpay.model.exception.InvalidUserTypeException;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -41,6 +42,11 @@ public class UserFactoryTest {
     @Test(expected = InvalidCpfValueException.class)
     public void shouldThrowInvalidCpfValueException() {
         Document.of("123.123ola");
+    }
+
+    @Test(expected = InvalidUserTypeException.class)
+    public void shouldThrowInvalidUserTypeException() {
+        UserType.from("UNKNOWN");
     }
 
     private final UserRepository userRepository = mock(UserRepository.class);

@@ -17,7 +17,7 @@ public class User {
         this.document = builder.document;
         this.email = builder.email;
         this.password = builder.password;
-        this.balance = BigDecimal.valueOf(0);
+        this.balance = builder.balance != null ? builder.balance : BigDecimal.valueOf(0);
     }
 
     public void increaseBalance(BigDecimal amount) {
@@ -53,11 +53,13 @@ public class User {
     }
 
     public static class Builder {
+
         private UserType userType;
         private UserName name;
         private Document document;
         private UserEmail email;
         private Password password;
+        private BigDecimal balance;
 
         public static Builder aUser() {
             return new Builder();
@@ -85,6 +87,11 @@ public class User {
 
         public Builder with(Password password) {
             this.password = password;
+            return this;
+        }
+
+        public Builder with(BigDecimal balance) {
+            this.balance = balance;
             return this;
         }
 

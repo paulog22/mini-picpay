@@ -2,6 +2,8 @@ package com.paulo.minipicpay.model;
 
 import com.paulo.minipicpay.model.exception.InvalidCpfValueException;
 
+import java.util.Objects;
+
 public class Document {
 
     private final String value;
@@ -14,7 +16,7 @@ public class Document {
         if (isValid(value)) {
             return new Document(value);
         }
-        throw new InvalidCpfValueException("Invalid Cpf value");
+        throw new InvalidCpfValueException("Invalid Document value");
     }
 
     public static boolean isValid(String value) {
@@ -23,5 +25,18 @@ public class Document {
 
     public String value() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Document document = (Document) o;
+        return Objects.equals(value, document.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
